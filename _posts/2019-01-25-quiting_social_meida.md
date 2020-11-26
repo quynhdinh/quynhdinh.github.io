@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "I quit social media"
+tag: technology, well-being
 ---
 
 One of my highlights in 2019 is to successfully quit social media. Here I would show you why did I reach that decision and how did I successfully quit social media.
