@@ -11,7 +11,7 @@ layout: feed
  <id>http://jmcglone.com/notes/</id>
  <author>
    <name>Jonathan McGlone</name>
-   <email>jwmcglone@gmail.com</email>
+   <email>dvquynh@apcs.vn</email>
  </author>
 
  {% for post in site.posts %}
