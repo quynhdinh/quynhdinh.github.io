@@ -6,7 +6,6 @@ Shamelessly I have been used Git for some time now but I didn't know many of the
 ### Git init
 Inititalize a git repository in a current directory. The initialized folder called .git which includes config()
 ### Git status
-
 ### Git add và staging
 ### Git commit
 ### Git commit --amend

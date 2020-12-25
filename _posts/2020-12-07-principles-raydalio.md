@@ -9,7 +9,7 @@ Here are some notes from the book **Principles** written by Ray Dalio.
 
   
 
-- "The most important thing i learned is an approach to life based on principles that helps me find out whats true and what to do about it."
+- "The most important thing I learned is an approach to life based on principles that helps me find out whats true and what to do about it."
 
   
 
