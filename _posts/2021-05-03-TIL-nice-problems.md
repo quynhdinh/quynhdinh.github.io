@@ -4,6 +4,7 @@ title: "TIL - Some nice coding interview-ish I recently met"
 ---
 I purchased Leetcode premium last week and trying to make the best out of it. Here are some problems I like.
 ### Course schedule III
+You are given some courses with time needed to learn and deadline day. You need to find out the logistic that you can take as many courses as possible. Output the max number of courses you can take.
 
 ### The number of island II
 You have a grid of size `H` and `W` and they are all water cells, you have `Q` queries, that each you transform the cell `x`, `y` to land. You output the number of land for each of the query.
