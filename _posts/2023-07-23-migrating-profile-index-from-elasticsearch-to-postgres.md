@@ -1,14 +1,8 @@
----
-layout: post
-title: "Migrating a profile index from Elasticsearch to Postgres"
--
---
-# Migrating Profile index from Elasticsearch to Postgres
+This is one of the project I did in one of my job. In short, there is an Elasticsearch index called `Profile` and we want to move the persistent storage to Postgres. This is my writing-up of the process.
 
 Build script
-
 ```json
-.**/script/build master**
+./script/build master
 ```
 
 Run script
@@ -17,7 +11,7 @@ Run script
 // starting postgres locally first
 docker run --rm -p 5432:5432 --name bench-postgres -e POSTGRES_PASSWORD=postgres -d postgres
 // point to some non-empty ES, because we want some profiles.
-**SERVICE_PROFILE_PERSISTENCE_TYPE=eav ELASTICSEARCH_PORT=19200 ./script/run master**
+SERVICE_PROFILE_PERSISTENCE_TYPE=eav ELASTICSEARCH_PORT=19200 ./script/run master
 ```
 
 Schemas
@@ -71,7 +65,7 @@ Indexes:
 // All other table are simliar to above.
 ```
 
-# How records are stored in a kv table
+## How records are stored in a kv table
 
 ```json
 postgres=# select * from profile_kv_str where profile_id='2JDLf0p1N7SfT9wLQqSweyVxVJm';
@@ -108,7 +102,7 @@ postgres=# select * from profile_kv_str where profile_id='2JDLf0p1N7SfT9wLQqSwey
 }
 ```
 
-# Correctness
+## Correctness
 
 ### Test condition
 
@@ -169,7 +163,7 @@ for p1: profiles
     → Because of the nature of the EAV model. `sortBy` and `offset-limit` profiles are post-processed when done querying all profiles up from Postgres.
     
 
-# ConditionType supported
+## ConditionType supported
 
 - [x]  `matchAllCondition`
 - [x]  `booleanCondition`
@@ -179,7 +173,7 @@ for p1: profiles
     `comparisonOperator` are not supported yet( `inContains`, `hasSomeOf`, `hasNoneOf`, `all`, `isDay` `isNotDay`)
     
 
-# Migration data from ES to PG (WIP)
+## Migration data from ES to PG (WIP)
 
 For ~ **347734 profiles** on Dev, the current naive migrating strategy takes **90 mins** to finish
 
@@ -206,17 +200,17 @@ COPY profile_kv_bool FROM '/path/to/csv/profile_kv_bool.txt' WITH (FORMAT csv);
 // same with all other tables.
 ```
 
-# Benchmark
+## Benchmark
 
-# Write profiles to PG
+### Write profiles to PG
 
 I initially want to save 1 million profiles. But the CPU usage at one point is too high, so i dies midway.
 
-![Untitled](Migrating%20Profile%20index%20from%20Elasticsearch%20to%20Post%20f933503c419a403ba8f240ecf6a6a196/Untitled.png)
+<!-- ![Untitled](Migrating%20Profile%20index%20from%20Elasticsearch%20to%20Post%20f933503c419a403ba8f240ecf6a6a196/Untitled.png) -->
 
-![Untitled](Migrating%20Profile%20index%20from%20Elasticsearch%20to%20Post%20f933503c419a403ba8f240ecf6a6a196/Untitled%201.png)
+<!-- ![Untitled](Migrating%20Profile%20index%20from%20Elasticsearch%20to%20Post%20f933503c419a403ba8f240ecf6a6a196/Untitled%201.png) -->
 
-# Read profile by `profile_id`
+### Read profile by `profile_id`
 
 Collected all the `profile_id` from the above write test. Use api `cxs/profiles/{profie_id}` to fetch profile. The average time is ~ `3ms` The RPS is average around 200.
 
