@@ -21,7 +21,7 @@ I use this a lot in the other aliases
 
 `g pf` means `git push --force`
 ### set upstream
-Once you checkout a new branch, you have to type that long set upsteam thing. Automate that!
+Once you checkout a new branch, you have to type that long set upstream thing. Automate that!
 ```bash
 function set_upstream {
     CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD);
@@ -48,7 +48,7 @@ alias misc=commit_misc
 You might be lazy typing `g p` and want to commit and push in one enter!
 ```bash
 function commit_misc_then_push {
-	commit_misc
+    commit_misc
     git push
 }
 alias miscp=commit_misc_then_push
