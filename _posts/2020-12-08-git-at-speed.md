@@ -15,7 +15,7 @@ I use this a lot in the other aliases
 ### always pull rebase auto-stash
 `g pr` means `git pull --autostash --rebase`
 ### git rebase interative
-`g reb 3` means git rebase --interative 3
+`g reb 3` means `git rebase --interative 3`
 ### git push and git push --force
 `g p` means `git push`
 

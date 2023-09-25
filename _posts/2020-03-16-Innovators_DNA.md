@@ -26,7 +26,7 @@ What are the other two discovery skills? You might ask. They are **experimenting
 ### References
 [Dong tien thong minh FNBC](https://youtu.be/VoYZJlNE6Og?t=43)
 
-Q&A session with Thuan Pham - RISE Conference 2019
+[Q&A session with Thuan Pham - RISE Conference 2019](https://vimeo.com/347465674)
 
 [Data Science at Scale - A conversation with Uber's Fran Bell](https://eng.uber.com/data-science-at-scale-a-conversation-with-ubers-fran-bell/)
 
