@@ -1,14 +1,16 @@
 ---
 layout: post
-title: "Effective C++"
+title: "Effective C++, Effective STL"
 ---
-These are my notes for the book Effective C++ by Scott Meyers you can see my simliar writing his two useful books called [Effective STL](https://quynhdinh.github.io/notes/2023/09/25/effective-stl) and [Modern Effective C++](https://quynhdinh.github.io/notes/2023/09/25/effective-modern-cpp)
+These are my notes for the book Effective C++ by Scott Meyers you can see my simliar writing of his excellent [Modern Effective C++](https://quynhdinh.github.io/notes/2023/09/25/effective-modern-cpp)
+
+As for effective STL [this](https://grant6899.github.io/2017/11/21/Effective-STL-Notes) is great.
 
 #### Chapter 1.  Accustoming Yourself to C++
 - [x] 1: View C++ as a federation of languages
 
 Those are STL, the good old C, and the OOP C++.
-- [ ] 2: Prefer consts, enums, and inlines to `#defines`
+- [x] 2: Prefer consts, enums, and inlines to `#defines`
 
 Before your source code actually goes to the compiler, it will come to the symbol table, by using #defines instead of others, there are no meaningful exceptions throw when errors came
 - [ ] 3: Use const whenever possible
@@ -34,7 +36,9 @@ Before your source code actually goes to the compiler, it will come to the symbo
 #### Chapter 4.  Designs and Declarations
 - [ ] 18: Make interfaces easy to use correctly and hard to use incorrectly
 - [ ] 19: Treat class design as type design
-- [ ] 20: Prefer pass-by-reference-to-const to pass-by-value
+- [x] 20: Prefer pass-by-reference-to-const to pass-by-value
+
+If you don't intent to modify parameter pass
 - [ ] 21: Don't try to return a reference when you must return an object
 - [ ] 22: Declare data members private
 - [ ] 23: Prefer non-member non-friend functions to member functions
@@ -72,13 +76,15 @@ This is classic. Same advice from Bloch's book.
 - [ ] 47: Use traits classes for information about types
 - [ ] 48: Be aware of template metaprogramming
 
-### Chapter 8.  Customizing new and delete
+#### Chapter 8.  Customizing new and delete
 - [ ] 49: Understand the behavior of the new-handler
 - [ ] 50: Understand when it makes sense to replace new and delete
 - [ ] 51: Adhere to convention when writing new and delete
 - [ ] 52: Write placement delete if you write placement new
 
 #### Chapter 9.  Miscellany
-- [ ] 53: Pay attention to compiler warnings.
+- [x] 53: Pay attention to compiler warnings.
+
+In short, strive to remove as many as warning as possible.
 - [ ] 54: Familiarize yourself with the standard library, including TR1
 - [ ] 55: Familiarize yourself with Boost.
