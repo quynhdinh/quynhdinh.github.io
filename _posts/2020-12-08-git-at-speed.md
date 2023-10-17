@@ -3,25 +3,24 @@ layout: post
 title: "Git at speed"
 ---
 ### Introduction
-Here are some aliases. I use them pretty much everyday. Here, I explain in detailed my aliases use at work. You can find all the code [here](https://github.com/quynhdinh/files/blob/main/bash_aliases) and [here](https://github.com/quynhdinh/files/blob/main/gitconfig)
+Here are some aliases that I use pretty much everyday. Here, I explain in detailed my aliases use at work. You can find all the code [here](https://github.com/quynhdinh/files/blob/main/bash_aliases) and [here](https://github.com/quynhdinh/files/blob/main/gitconfig)
 
-I normally work on multiple machines and often time code at night after work.
-### g
-Aliasing `g` as `git`. This is default on linux machine.
+### what's up G
+First off, aliasing `g` as `git`. This is default on linux machine.
 ### current branch name
 I use this a lot in the other aliases
 
 `g at` means `git rev-parse --abbrev-ref HEAD`
 ### always pull rebase auto-stash
 `g pr` means `git pull --autostash --rebase`
-### git rebase interative
+### rebase interative
 `g reb 3` means `git rebase --interative 3`
-### git push and git push --force
+### push and force push
 `g p` means `git push`
 
-`g pf` means `git push --force`
+`g pf` means `git push --force-with-lease`
 ### set upstream
-Once you checkout a new branch, you have to type that long set upstream thing. Automate that!
+Once you checkout a new branch, you have to type that long setting upstream thing. Automate that!
 ```bash
 function set_upstream {
     CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD);
@@ -31,7 +30,7 @@ function set_upstream {
 alias up=set_upstream
 ```
 ### commit all with a random message
-You are lazy and don't want to invent a commit message(because you will rebase it anyway(you are commiting on on your own branch, of course!))
+You are lazy and don't want to invent a commit message(because you will rebase it anyway(you are commiting on your own branch, of course!))
 ```bash
 function commit_misc {
     CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD);

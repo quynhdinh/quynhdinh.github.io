@@ -18,9 +18,9 @@ If you think that people think you are stupid to join a company. Don't. This is 
 
 ### On pair programming questions
 It is common now that candidates are asked a programming puzzle and solved it in a limit amount of time. I used to be asked [this problem](https://leetcode.com/problems/decode-string/) and I think it is a great to access a candidate skills. In short, asking an long implementation problem tells a lot about a candidate. The problem should not be very [trivial](https://leetcode.com/problems/fizz-buzz/)) but ideally should involve some slightly-tricky logic(like nested for-loops or some trickly conversations). Why does this work ?
-- This is a proof of how programming-savvy a candidate is. At most jobs, you don't use a Dijkstra or an algorithmic puzzle that requires a subtle observation. I really think that being able to solve long implementation is enough to hire a candiate.
+- This is a proof of how programming-savvy a candidate is. At most jobs, you don't use a Dijkstra or an algorithmic puzzle that requires a subtle observation. At most positions, I really think that being able to write long implementation is enough to hire a candiate.
 - Many good software engineers don't really grind Leetcode a lot. It has been a long time since the last time he wrote BFS, he can write a BFS with a bit of a help from Google may be not in a 30 mins time frame.
-Of course, for those positions that require algorithms skills(optimization on systems, Google level interview), asking algorithms to test smartness make sense.
+Of course, for those positions that require algorithms skills(optimization on systems, Google level talent bar(where they have thousands applicants fighting for one headcount)), asking tricky algorithms to test smartness makes sense.
 
 ### On technology specifics
 I once got asked what are different annotations in Spring framework. I never worked with Spring so I couldn't answer this. If a candidate don't specify that on their resume so why ask ?
