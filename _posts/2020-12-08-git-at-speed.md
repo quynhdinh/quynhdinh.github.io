@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Git at speed"
+title: "[Tech] Git at speed"
 ---
 ### Introduction
 Here are some aliases that I use pretty much everyday. Here, I explain in detailed my aliases use at work. You can find all the code [here](https://github.com/quynhdinh/files/blob/main/bash_aliases) and [here](https://github.com/quynhdinh/files/blob/main/gitconfig)

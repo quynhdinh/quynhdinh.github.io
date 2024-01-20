@@ -1,3 +1,7 @@
+---
+layout: post
+title: "[Tech] Java Senior Interview"
+---
 Today, I watch this mock interview [link](https://www.youtube.com/watch?v=sGg-mhUMbyA)
 
 Here are some learning notes for further research:

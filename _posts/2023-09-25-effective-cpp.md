@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Effective C++, Effective STL"
+title: "[Tech] Effective C++, Effective STL"
 ---
 These are my notes for the book Effective C++ by Scott Meyers you can see my simliar writing of his excellent [Modern Effective C++](https://quynhdinh.github.io/notes/2023/09/25/effective-modern-cpp)
 

@@ -1,5 +1,9 @@
-Today, I watch this mock interview (link)[https://www.youtube.com/watch?v=sGg-mhUMbyA]
+---
+layout: post
+title: "[Tech] Understanding compiler optimization"
+---
 
+Today, I watch this mock interview (link)[https://www.youtube.com/watch?v=sGg-mhUMbyA]
 Notes:
 LLVM ?
 

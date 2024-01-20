@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Binary search meets sliding window"
+title: "[Tech] Binary search meets sliding window"
 ---
 
 I come across this problem on a [Leetcode contest](https://leetcode.com/problems/apply-operations-to-maximize-frequency-score/) and find it fascinating.

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Hackerrank problems writing-ups"
+title: "[Tech] Hackerrank problems writing-ups"
 ---
 
 I just realized Hackerrank have a list of really problems that suit my taste. I prefer problems that are short, algorithmic and interview-type. Following are my writing-up of non-trivial problem solving on this platform!. 

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Two solutions to a Google interview problems"
+title: "[Tech] Two solutions to a Google interview problems"
 ---
 I just come aross this problem.
 

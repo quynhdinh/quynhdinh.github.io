@@ -1,3 +1,7 @@
+---
+layout: post
+title: "[Tech] Virtual Thread"
+---
 Java was the first mainstream programming platform that took threads into the core language as its concurrent programming unit. The classic Java threads (an instance of java.lang.Thread) are a one-to-one wrapper over operating system (OS) threads (also known as platform threads). On the other hand, virtual threads are lightweight implementations of the Thread class that the JDK, rather than the OS, provides. Virtual threads use the platform thread to run their code, but it does not capture the OS thread for the code's entire lifetime. This enables many virtual threads to run their Java code on the same OS thread.
 
 There are many benefits of a virtual thread. Most of all, it makes creating threads cheap and helps to increase application throughput. Server applications nowadays handle concurrent user requests by delegating each to an independent unit of execution, that is, a platform thread. This thread-per-request programming style is easy to understand, easy to program and easy to debug and profile. However, platform threads are limited in number because the JDK implements threads as wrappers around OS threads. So when an application needs to scale to increase throughput, it fails to do so with platform threads. Now, since a large number of virtual threads are easy to create, the thread-per-request programming style alleviates this scalability bottleneck with it.

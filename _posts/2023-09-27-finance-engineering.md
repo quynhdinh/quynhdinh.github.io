@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Financial Engineering"
+title: "[Tech] Financial Engineering"
 ---
 This is my notes for my self-learning of finance and finance engineering.
 
