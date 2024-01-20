@@ -11,10 +11,10 @@ Instead, by observing how the candidates communicate throughout the interview(or
 ### Poorly structured interview
 I have plenty of interviews that the interviewer came in and doesn't really have a list of topics that they want to ask. They really just came up with whatever questions that pop up in their head. This is a big red flag, they take you lightly and it is not worth your time joining these companies.
 
-### Don't stressed if you can't get the job
+### Don't take your interviews too seriously
 I used to stressed out at my very first interview for an internship position. As I interview more, I become get used to failures and rejections.
 
-If you think that people think you are stupid to join a company. Don't. This is what an interviewer does after walking out of the interview room or turn off that zoom meeting. They will go on Slack talk to the HR that she will tell you No and that's it. One open position normally wil have tens of applicants apply so there is no point to be disappointed. Instead, learn from your failure and do not repeat that mistake again.
+If you think that people think you are stupid to join a company. Don't. This is what an interviewer does after walking out of the interview room or turn off that zoom meeting. They will go on Slack talk to the HR that she will tell you No and that's it. One open position normally wil have tens if not hundreds of applicants apply so there is no point to be disappointed. Instead, learn from your failure and do not repeat that mistake again.
 
 ### On pair programming questions
 It is common now that candidates are asked a programming puzzle and solved it in a limit amount of time. I used to be asked [this problem](https://leetcode.com/problems/decode-string/) and I think it is a great to access a candidate skills. In short, asking an long implementation problem tells a lot about a candidate. The problem should not be very [trivial](https://leetcode.com/problems/fizz-buzz/)) but ideally should involve some slightly-tricky logic(like nested for-loops or some trickly conversations). Why does this work ?
