@@ -4,7 +4,7 @@ title: "[Tech] Binary search meets sliding window"
 ---
 
 I come across this problem on a [Leetcode contest](https://leetcode.com/problems/apply-operations-to-maximize-frequency-score/) and find it fascinating.
-### [2968. Apply Operations to Maximize Frequency Score](https://leetcode.com/problems/apply-operations-to-maximize-frequency-score/em)
+### [2968. Apply Operations to Maximize Frequency Score](https://leetcode.com/problems/apply-operations-to-maximize-frequency-score/)
 Problem statement: Given an array, in one operation you can either increase or decrease any value at any position by `1`. The beauty of an arrray is the largest frequency of any nubmer. In at most `k` operation, make the array as beautiful as possible.
 
 To make the solution easier. Let's consider 2 small sub-problems.
