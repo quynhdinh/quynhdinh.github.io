@@ -1,9 +1,11 @@
 ---
 layout: post
-title: "[Tech] Hackerrank problems writing-ups"
+title: "[Tech] Algorithmic puzzle writing-ups"
 ---
 
-I just realized Hackerrank have a list of really problems that suit my taste. I prefer problems that are short, algorithmic and interview-type. Following are my writing-up of non-trivial problem solving on this platform!. 
+This is a place where I write up the solutions for some nice problems I stumbled upon
+
+My problem selection taste are short, algorithmic and interview-type.
 ### [Cut the tree](https://www.hackerrank.com/challenges/cut-the-tree/problem)
 Given a tree. Remove any one edge. Find the minimum absolute sum of two subtree value nodes.
 ```cpp
@@ -38,3 +40,11 @@ int cutTheTree(vector<int> data, vector<vector<int>> edges) {
     return res;
 }
 ```
+
+### [Shortest path 3](https://atcoder.jp/contests/abc362/tasks/abc362_d)
+Given an undirected graph. Each vertice and an edge has a cost associated with it. The weight of a path of two vertices is the sum of the cost of edge and sum of all vertices appear on the path.
+
+Starting from vertice 1. Find the shortest path to all other vertices.
+
+Solution [here](https://atcoder.jp/contests/abc362/editorial/10422)
+
