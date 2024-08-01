@@ -6,5 +6,5 @@ title: "Misc: links"
 [https://excalidraw.com](https://excalidraw.com) to make texts look more hand-writing-like
 
 ### C++
-[lemire.me](lemire.me) University professor blog on software performance
+[lemire.me](https://lemire.me) University professor blog on software performance
 
