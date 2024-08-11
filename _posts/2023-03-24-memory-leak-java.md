@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "How to create a memory leak in Java program?"
+title: "[Tech] How to create a memory leak in Java program?"
 ---
 Here's a good way to create a true memory leak (objects inaccessible by running code but still stored in memory) in pure Java:
 - The application creates a long-running thread (or use a thread pool to leak even faster).
