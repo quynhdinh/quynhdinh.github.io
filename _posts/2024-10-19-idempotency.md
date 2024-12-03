@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Idempotency and how to implement it?"
+title: "[Tech] Idempotency and how to implement it?"
 ---
 
 ### Idempotency
