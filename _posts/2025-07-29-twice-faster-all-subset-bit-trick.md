@@ -20,7 +20,6 @@ for(int mask = 0; mask < (1 << N); mask++) {
 ```
 There is a better way to generate all subsets. For a given mask, we can quickly find the `1` that turns on the least significant bit, which corresponds to the first element in the subset. This can be done using the expression `m & (-m)`, which isolates the lowest set bit. We can then use `__builtin_ctz` to find its position, allowing us to build the subset without iterating through all bits. Then we substract this bit from the mask and repeat the process until the mask becomes zero.
 
-This method is precisely twice faster than the previous method. Consider all the bit representations from `0` to `2^N - 1`. The number of 1's is exactly the same as the number of 0's, so by quickly finding the next `1`, we can halve the number of operations needed to generate all subsets.
 
 The code is as follows:
 ```cpp
@@ -39,4 +38,8 @@ for(int mask = 0; mask < (1 << N); mask++) {
 }
 ```
 
-**Note:** `m & (-m)` isolates the lowest set bit. For example, a number `m` in binary is `1001101000` then `m & (-m)` is `0000001000` and `__builtin_ctz` counts the number of trailing zeros in `m`, giving us the index of that bit which is also the index of the number we want to collect in `arr`.
+**Note:** `m & (-m)` isolates the lowest set bit. For example, a number `m` in binary is `1001101000` then `m & (-m)` is `0000001000` and `__builtin_ctz` counts the number of trailing zeros in `m`, counts the number of trailing zeros in m giving us the index of that bit which is `3` in this example, which is also the index of the number we want to collect in `arr`.
+
+This method is precisely twice faster than the previous method. Consider all the bit representations from `0` to `2^N - 1`. The number of 1's is exactly the same as the number of 0's, so by quickly finding the next `1`, we can halve the number of operations needed to generate all subsets.
+
+All that said, I don't think this method will give you a significant performance boost in when solving problems in competitive programming, but it is a neat trick to know. If the intended solution is not to generate all subsets, this method is not likely to make it pass the time limit. But this trick can be useful when you want to prune the search space in a backtracking solution or when you want to impress your friends with a clever bit manipulation technique.
