@@ -2,12 +2,13 @@
 layout: post
 title: "Avoiding Overflow: Using Logarithms to Transform Product Queries"
 ---
+Ever wonder what logarithms are good for other than just a math concept? Here is a neat trick that utilizes logarithms that might come in handy in competitive programming or algorithm design.
 
-Consider this problem: Given an array of integers, where a number could be up to `10^9`, then you have `Q` queries, each query is a range `[l, r]`, you need to find the product of all numbers in that range. If the product is larger than `10^9`, you can just return `10^9`.
+Consider this problem: Given an array of integers of size N, where a number could be up to `10^9`, then you have `Q` queries, each query is a range `[left, right]`, you need to find the product of all numbers in that range. If the product is larger than `10^9`, you can just return `10^9`.
 
 The naive solution is for each query, you iterate through the range and calculate the product. This will take `O(N * Q)` time, which is not efficient for large inputs.
 
-In languages that support big integers like Java or Python, you can use a big integer type to store the product and avoid overflow. However, in languages like C++ or Go, you might run into overflow issues with standard integer types.
+In languages that support big integers like Java or Python, you can use a big integer type to store the product to avoid overflow. However, in languages like C++ or Go, you might run into overflow issues with standard integer types.
 
 One cool trick is to replace each number with its logarithm. Instead of calculating the product, you can calculate the sum of logarithms. And you can use prefix sum to calculate that. Why does this work? Because of the property of logarithms:
 
@@ -17,7 +18,7 @@ Note: In this trick, bases are not really important. The base of logrithm can be
 
 And if you want to retrieve the product from the sum of logarithms, you can use the exponential function on that sum. Because:
 
-a * b = exp(log(a * b))
+a * b = e ^ log(a * b)
 
 The illustration code is as follows:
 ```cpp
