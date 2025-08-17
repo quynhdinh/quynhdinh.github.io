@@ -43,4 +43,6 @@ auto query = [&](int l, int r) {
 ```
 By doing this, if all number of the array are maximum `10^9` whose log is ~20, the maximum sum of logarithms is just `N * 20`. So you can easily store the prefix sum in a `double` array without worrying about overflow.
 
+Even more, you can utilize the fact that logarithms transform multiplication into addition, you can then make this step as a preprocessing that later be used with a complicated data structure like a segment tree or a binary indexed tree to handle queries with updates efficiently.
+
 There you go, you can now answer each query in `O(1)` time after `O(N)` preprocessing time. This is a neat trick that can be applied to various problems involving products, especially when the numbers involved are large and can lead to overflow issues.
