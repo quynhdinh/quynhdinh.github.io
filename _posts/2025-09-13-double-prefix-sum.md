@@ -58,19 +58,21 @@ Now the sum of all subarray starting from `a5`
 
 `p5_3 = P[7] - P[4]`
 
-We now can see the right parts of those differences are the same and they exists `3` times each (or `r - i + 1` times)
+We now can see the right parts of those differences are the same and they exists `3` times each (or `r - i + 1` times). Each of those elements are `P[5]`, `P[6]`, and `P[7]` or `P[i]`, `P[i + 1]`, ..., `P[r]`
 
-We now can see the left parts of those differences are the same and they exists `4` times each (or `i - l + 1` times)
+Also left parts of those differences are the same and they exists `4` times each (or `i - l + 1` times). Each of those elements are `P[1]`, `P[2]`, `P[3]`, and `P[4]` or `P[l - 1]`, `P[l]`, ..., `P[i - 1]`
 
-We now need a way to calculate the sum of subarray of `P` efficiently. Of course, we can apply prefix sum again. Here come the name double prefix sum.
+We now need a way to calculate the sum of subarray of `P` efficiently. Of course, we can apply prefix sum again on the prefix sum `P`. Here come the name double prefix sum.
 
-Call ``PP`` as the prefix sum array of P. That is `PP[i]` is the sum of the first `i` elements of `P`. ``PP[i] = PP[i - 1] + P[i]``
+Call ``PP`` as the prefix sum array of `P`. That is `PP[i]` is the sum of the first `i` elements of `P`. ``PP[i] = PP[i - 1] + P[i]``
 
 Put them all together, the sum of all subarrays in the range `[l, r]` that include the element at index `i` can be calculated as follows:
 
 ```sum = (i - l + 1) * (PP[r] - PP[i - 1]) - (r - i + 1) * (PP[i - 1] - PP[l - 2])```
 
-Sometimes, something that looks complex and hopeless can be solved by writing things down and looking for patterns. Double prefix sum is one of those techniques that can be used to solve problems that at first glance seem impossible or very hard.
+The preprocessing time is O(N) and the answer for each query is O(1)
+
+Sometimes, something that looks complex can be solved by writing things down and looking for patterns. Double prefix sum might help you to have an idea when asked to calculate the sum of sums in a range with some constraints.
 
 One quite hard problem that use this technique as a step is [LC-2281](https://leetcode.com/problems/sum-of-total-strength-of-wizards/)
 
