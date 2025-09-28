@@ -10,16 +10,14 @@ The naive solution is to run a DFS or BFS for each query, which will take `O(N +
 using namespace std;
 
 const int MAX_N = 5000; 
-int32_t main(){
-  ios::sync_with_stdio(false);
-  cin.tie(0);
+int main(){
   int n, m; cin>>n>>m;
   vector<vector<int>> g(n);
   vector<int> in_degree(n);
   for(int i = 0; i < m; i++){
     int u, v; cin>>u>>v;
-    g[v].push_back(u);  // reverse the graph
-    in_degree[u]++;
+    g[u].push_back(v);
+    in_degree[v]++;
   }
   queue<int> q;
   vector<bitset<MAX_N>> dp(n);
@@ -32,10 +30,8 @@ int32_t main(){
     int u = q.front(); q.pop();
     for(int v : g[u]){
       dp[v] |= dp[u];  // Update dp[v] with reachability from u
-      in_degree[v]--;
-      if(in_degree[v] == 0){
+      if(--in_degree[v] == 0)
         q.push(v);
-      }
     }
   }
   int Q; cin>>Q;
@@ -49,57 +45,63 @@ int32_t main(){
 
 The operations on bitsets are very efficient. The time complexity of the `or` operation on two bitsets of size `N` is `O(N / 32)` or `O(N / 64)` depending on the architecture, which is much faster than iterating through all nodes. The overall time complexity for building the `dp` table using this method is `O(N^2 / 64 + M)` and then you can answer each query in `O(1)` time. This might work with generous time limits, but this method raises another problem: the size of `dp` could be too large for large `N`. If `N = 100000`, you need `N^2` bits which could lead to memory issues.(1)
 
-Instead of using a bitset of size `N` for each node, you can use `N / 64` numbers of 64 bit integers.
+To solve this problem, we can use the block-of-64 trick. The idea is to divide the nodes into blocks of size 64 and use a bitset for each block. This way, we can reduce the memory usage significantly. Here is how you can implement this:
+
 ```cpp
 #include <bits/stdc++.h>
 using namespace std;
-
-int32_t main(){
+int main(){
   int n, m; cin>>n>>m;
   vector<vector<int>> g(n);
   vector<int> in_degree(n);
   for(int i = 0; i < m; i++){
     int u, v; cin>>u>>v;
-    g[v].push_back(u);  // reverse the graph
-    in_degree[u]++;
+    g[u].push_back(v);
+    in_degree[v]++;
   }
   queue<int> q;
-  int blocks = n / 64 + (n % 64 != 0);
-  vector<vector<uint64_t>> dp(n, vector<uint64_t>(blocks));
-  for(int i = 0; i < n; i++){
-    if(in_degree[i] == 0)
+  vector<int> order;
+  for(int i = 0; i < n; i++)
+    if(in_degree[i] == 0){
       q.push(i);
-    dp[i][i / 64] |= (1ULL << (i % 64));  // mark self-reachability
-  }
+      order.push_back(i);
+    }
   while(!empty(q)){
     int u = q.front(); q.pop();
-    for(int v : g[u]){
-      // Update dp[v] with reachability from u
-      for(int i = 0; i < blocks; i++){
-        dp[v][i] |= dp[u][i];
-      }
-      in_degree[v]--;
-      if(in_degree[v] == 0){
+    for(auto v : g[u])
+      if(--in_degree[v] == 0){
         q.push(v);
+        order.push_back(v);
       }
-    }
   }
   int Q; cin>>Q;
-  while(Q--){
+  vector<pair<int, int>> queries;
+  for(int i = 0; i < Q; i++){
     int u, v; cin>>u>>v;
-    if(dp[u][v / 64] & (1ULL << (v % 64))) {
-      cout << "YES\n";
-    } else {
-      cout << "NO\n";
+    queries.push_back({u, v}); // can you reach v from u?
+  }
+  vector<int> ans(Q, 0);
+  const int block_size = 64;
+  for(int block_start = 0; block_start < n; block_start += block_size){
+    int block_end = min(n, block_start + block_size);
+    vector<bitset<block_size>> dp(n);
+    for(auto u : order){
+      if(block_start <= u && u < block_end)
+        dp[u][u - block_start] = 1;
+      for(auto v : g[u])
+        dp[v] |= dp[u];
+    }
+    for(int q = 0; q < Q; q++){
+      auto [u, v] = queries[q];
+      if(block_start <= v && v < block_end && dp[u][v - block_start])
+        ans[q] = 1;
     }
   }
+  for(int q = 0; q < Q; q++)
+    cout<<(ans[q] ? "YES" : "NO")<<"\n";
   return 0;
 }
 ```
-The time complexity for building the `dp` table using this method is `O(N * 64 + M)` and then you can answer each query in `O(1)` time. This method is much more memory efficient because instead of using `N^2` bits, you are using `N * (N / 64)` bits which is `N^2 / 64` bits. This can significantly reduce the memory usage and make it feasible to handle larger graphs.
-
 Note:
 
 (1) We are using 10^5 bitsets of size 10^5 which takes 10^10 bits = 1.25GB of memory.
-
-(2) For `dp` array, we are using 10^5 * (10^5 / 64) * 8 bytes = 125MB of memory.
