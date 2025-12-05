@@ -30,16 +30,20 @@ int main(){
 }
 ```
 
-How to count how many HCNs are there up to 10^18 ?
+The question now is: How to count how many HCNs are there up to 10^18 ?
 
-Formula to calculate number of divisors of n = p1^e1 * p2^e2 * ... * pk^ek is (e1 + 1) * (e2 + 1) * ... * (ek + 1).
+Denote prime factorization of `n = p1^e1 * p2^e2 * ... * pk^ek`. The the number of divisors of n is `(e1 + 1) * (e2 + 1) * ... * (ek + 1)`.
 
-Now to count HCN up to 10^18, we need 2 observations. An HCN X has the following properties:
+Now to count HCN up to 10^18, we need 2 observations. An HCN `X` has the following properties:
 1. The exponents in the prime factorization are non-decreasing
-   Given a number X = p1^e1 * p2^e2 * ... * pk^ek, if there exists an i such that ei > ei+1, then we can create a smaller number Y = p1^e1 * ... * pi^(ei - 1) * pi+1^(ei+1 + 1) * ... * pk^ek which has more divisors than X. This contradicts the definition of HCN.
-2. X only have prime factors up to 50
-   If X has a prime factor p > 50, that means X divides 53. That means X divides the product of all primes up to 53, which is > 10^18.
-3. The exponents are small. Say e1 <= 20, e2 <= 10, e3 <= 7, e4 <= 5, e5 <= 4, e6 <= 3, every else e's is <= 2
+   
+   Given a number `X = p1^e1 * p2^e2 * ... * pk^ek`, if there exists an `i` such that `ei > ei+1`, then we can create a smaller number `Y = p1^e1 * ... * pi^(ei - 1) * pi+1^(ei+1 + 1) * ... * pk^ek` which has more divisors than `X`. This contradicts the definition of HCN.
+2. `X` only have prime factors up to 50
+   
+   If `X` has a prime factor `p > 50`, that means `X` divides 53. That means `X` divides the product of all primes up to 53, which is > 10^18.
+3. The exponents are small. 
+   
+   Say `e1 <= 20`, `e2 <= 10`, `e3 <= 7`, `e4 <= 5`, `e5 <= 4`, `e6 <= 3`, and every `e's` else is <= 2
 Using these observations, we can generate HCNs by starting with the smallest prime and trying all possible combinations of exponents.
 
 Backtracking code to count HCNs up to 10^18:
