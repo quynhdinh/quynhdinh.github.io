@@ -8,7 +8,7 @@ Dijkstra is a very well-know algorithm to find the shortest path from a single s
 Let's say we are interested in finding the number of different shortest paths from the source node `s` to a target node `t`. Two paths are considered different if the sequence of nodes in the paths are different.
 
 Using Dijkstra on a graph `G = (V, E)` with source node `s`. We have a distance array `dist[]` where `dist[u]` is the shortest distance from `s` to `u`. We now created a new **directed** graph `G' = (V, E')` where `E'` is defined as follows:
-```E' = {(u -> v) | (u, v) ∈ E and dist[v] = dist[u] + weight(u, v)}```. Constructing a DAG usually a prior step to doing dynamic programming on graphs.
+```E' = {(u -> v) | (u, v) ∈ E and dist[v] = dist[u] + weight(u, v)}```. Constructing a DAG usually a prior step to do dynamic programming on graphs.
 
 To find the number of different shortest paths from `s` to all other nodes, it is sufficient to do a topological sort on `G'` and then do dynamic programming on the DAG. Here is the illustration:
 ```cpp
