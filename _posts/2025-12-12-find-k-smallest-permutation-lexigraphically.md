@@ -50,7 +50,7 @@ We can apply the same logic. We try to put number `X` at position `1`(but this X
 
 ```cpp
 for(int v = 1; v <= n; v++) {
-    if(v is already used) continue;
+    if(v == res[0]) continue;
     int cnt = (n - 1)!; // number of permutations with v at position 1
     if(cnt < k) {
         k -= cnt;
@@ -65,7 +65,7 @@ We can repeat this process until we fill all positions in the result array.
 
 In practice, to iterate through the unused numbers efficiently, we can just maintain the unused numbers in a data structure like a set.
 
-Here is the complete C++ code to find the `k-th` lexicographically smallest permutation of the array [1, 2, ..., n]:
+Here is the complete C++ code to find the `k-th` lexicographically smallest permutation of the array `[1, 2, ..., n]`:
 
 ```cpp
 #include <iostream>

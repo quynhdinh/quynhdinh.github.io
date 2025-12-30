@@ -16,7 +16,7 @@ int main(){
     int n, m, s;
     vector<vector<pair<int, int>>> g;
     vector<int> dist(n, INT_MAX);
-    // Reading the input, run Dijkstra from on g source s to get dist[]
+    // Reading the input, run Dijkstra on g from s to get dist[]
     vector<int> cnt(n);
     cnt[s] = 1; // number of paths to source is 1
     for(int i = 0; i < n; i++){
